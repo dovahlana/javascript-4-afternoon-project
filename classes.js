@@ -159,6 +159,12 @@ if (this.reports === 0) {
         - The anonymous function should decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
 
-//Code Here
+// class Machine() {
+//   widgets_made_count: 0,
+//   wear_and_tear_count: 0,
+//   needs_reboot: false,
+//   makeWidgets: function makeWidgets(num1)
+
+}
 
 
