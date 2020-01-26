@@ -60,19 +60,18 @@ console.log(Employee);
 */
 
 class Manager extends Employee {
-  constructor(first_name,last_name,email,age,reports) {
-    super(first_name,last_name,email,age)
-    this.reports = []; 
+  constructor(first_name, last_name, email, age) {
+    super(first_name, last_name, email, age);
+    this.reports = [];
   }
-    hire(employee) {
-      this.reports.push(employee);
-      console.log(`return ${this.reports}`);
-    } 
-    fire(employee) {
-      this.reports.pop(employee);
-      console.log(`return ${this.reports}`);
-    }
 
+  hire(employee) {
+    this.reports.push(employee);
+  }
+
+  fire(index) {
+    this.reports.splice(index, 1);
+  }
 }
 
 
@@ -98,41 +97,38 @@ class Manager extends Employee {
 */
 
 class ProgressiveManager extends Manager {
-  constructor(first_name,last_name,email,age,reports) {
-  super(first_name,last_name,email,age,reports);
-  this.title = 'Not a manager';
-  this.bonus = 0;
-  this.reports = [];
-}
-hire(employee) {
-  this.reports(employee)
-}
-fire(employee) {
-  this.reports(employee)
-}
-if (this.reports === 0) {
-  return 'Not a manager' 
-} else if
-  (reports >= 1 && <= 3) {
-    return this.title = 'Barely Manager'
-  } else if
-    (this.reports >= 4 && <= 10 ) {
-      return this.title = 'Mostly Manager'
-    } else if
-      (this.reports >= 11 && <= 50 ) {
-        return this.title = 'Manager'
-      } else if 
-      (this.reports >= 51 && <= 100 ) {
-        return this.title = 'Manager Plus'
-      } else {
-        return this.title = 'Bestest Manager'
-      }
+  constructor(first_name, last_name, email, age) {
+    super(first_name, last_name, email, age);
+    (this.title = "Not a manager"), (this.bonus = 0);
+  }
+
+  hire(employee) {
+    super.hire(employee);
+    this.updateInfo();
+  }
+
+  fire(index) {
+    super.fire(index);
+    this.bonus += 100;
+    this.updateInfo();
+  }
+
+  updateInfo() {
+    if (this.reports.length === 0) {
+      this.title = "Not a manager";
+    } else if (this.reports.length >= 1 && this.reports.length <= 3) {
+      this.title = "Barely Manager";
+    } else if (this.reports.length >= 4 && this.reports.length <= 10) {
+      this.title = "Mostly Manager";
+    } else if (this.reports.length >= 11 && this.reports.length <= 50) {
+      this.title = "Manager";
+    } else if (this.reports.length >= 51 && this.reports.length <= 100) {
+      this.title = "Manager Plus";
+    } else {
+      this.title = "Bestest Manager";
     }
-    
-
-    
-  
-
+  }
+}
 
 
 
@@ -165,6 +161,5 @@ if (this.reports === 0) {
 //   needs_reboot: false,
 //   makeWidgets: function makeWidgets(num1)
 
-}
 
 
